@@ -4,6 +4,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -109,7 +110,6 @@ body {
   font-weight: var(--font-weight-normal);
   color: var(--text-color-dark);
   line-height: 1.6;
-  font-family: 'Segoe UI', sans-serif;
   background-color: var(--color-bg-primary);
 }
 
@@ -138,6 +138,7 @@ h3 {
 p {
   font-size: var(--text-size-md);
   font-weight: var(--font-weight-normal);
+  font-family: 'Roboto', Arial, sans-serif;
   margin-bottom: 1rem;
 }
 
@@ -164,6 +165,7 @@ small {
 
 .btn{
   font-size: var(--text-size-md);
+  font-family: 'Roboto', Arial, sans-serif;
   padding: var(--padding-md) var(--padding-lg);
   border: none;
   border-radius: var(--border-radius-s);
