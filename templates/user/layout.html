@@ -6,24 +6,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        {% block header %}
-        <!-- Default header, can be overridden -->
-        <h1>Welcome!</h1>
-        {% endblock %}
-    </header>
-
+    {% include 'components/_navbar.html' %}
+    
     <main>
         {% block content %}
         <!-- Each page will put its content here -->
         {% endblock %}
     </main>
 
-    <footer>
-        {% block footer %}
-        <!-- Optional footer -->
-        <p>&copy; 2025</p>
-        {% endblock %}
-    </footer>
+    {% include 'components/_footer.html' %}
 </body>
 </html>

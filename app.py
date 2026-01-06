@@ -1,32 +1,35 @@
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate, upgrade
+import os
+from flask import Flask, render_template
+from flask_migrate import Migrate
 from livereload import Server
-from models.model import db, seedData
+from database import db
+from models.model import seedData
+from dotenv import load_dotenv
+from models.model import seedData
 
+load_dotenv()
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://user:user123@localhost/Bank"
-db.app = app
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+environment = os.getenv("FLASK_DEBUG")
 db.init_app(app)
 migrate = Migrate(app, db)
 
 
 @app.route("/")
-def startpage():
-    return render_template("index.html")
+def home():
+    return render_template("user/index.html")
 
 
 if __name__ == "__main__":
-    import os
 
     if os.environ.get("FLASK_DEBUG") == "1":
-        from livereload import Server
-
+        with app.app_context():
+            # We need the app_context when using the db outside of a request
+            seedData(db)
         server = Server(app.wsgi_app)
         server.watch("templates/")
         server.watch("static/")
         server.serve(open_url_delay=True)
     else:
-        # TODO implement something better later
         app.run()
