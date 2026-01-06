@@ -76,7 +76,8 @@ button, input {
 
   --border-radius-s: 0.25rem;
   --border-radius-m: 0.5rem;
-  --border-radius-lg: 0.75rem;
+  --border-radius-lg: 1rem;
+  --border-radius-pill: 50rem;
 
   /* Colors */
   --text-color-dark: #1F2937;
@@ -168,6 +169,10 @@ small {
   border-radius: var(--border-radius-s);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+}
+
+a.btn.btn-primary{
+  text-decoration: none;
 }
 
 .btn-primary{
