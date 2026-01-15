@@ -1,0 +1,88 @@
+{% extends 'user/layout.html' %}
+{% from 'macros.html' import render_pagination, render_sorting_header %}
+{% block content %}
+
+<div class="container">
+    {# we specify form method as get and action is our endpoint #}
+    <form class="form-search" method="get" action="{{url_for('customer.get_all')}}">
+        <input 
+            type="text" 
+            name="q" 
+            placeholder="Search"
+            value="{{q if q else ''}}">
+        {# forms submit data, so the button is of type=submit to send it #}
+        <button class="btn btn-search" type="submit"><i class='bx  bx-search'></i></button>
+    </form>
+
+    <div class="table-shell">
+        <div class="table-scroll">
+            <table class="table-responsive">
+                <thead>
+                    <tr>
+                        <!-- kundnummer, personnummer, namn, adress, city -->
+                        <!-- kundnummer är customer.Id -->
+                        <th>
+                            {# macro replaces this Kundnummer 
+                            <a href="{{url_for('customer.get_all', page=page, per_page=50, sort_order='asc', sort_by='id')}}">
+                                <i class='bx  bx-chevron-up'></i> 
+                            </a>
+                            <a href="{{url_for('customer.get_all', page=page, per_page=50, sort_order='desc', sort_by='id')}}">
+                            <i class='bx  bx-chevron-down'></i> 
+                        </a> #}
+
+                        {{render_sorting_header(column_name='Kundnummer', sort_by='Id', endpoint='customer.get_all', page=page, per_page=per_page)}}
+                    </th>
+                    <th>
+                        Personnummer
+                    </th>
+                    <th>Name
+                        <a href="{{url_for('customer.get_all', page=page, per_page=50, sort_order='asc', sort_by='Name')}}">
+                            <i class='bx  bx-chevron-up'></i> 
+                        </a>
+                        <a href="{{url_for('customer.get_all', page=page, per_page=50, sort_order='desc', sort_by='Name')}}">
+                            <i class='bx  bx-chevron-down'></i> 
+                        </a>
+                    </th>
+                    <th>Adress</th>
+                    <th>City</th>
+                    <th>Länk</th>
+                </tr>
+            </thead>
+            {% for customer in pagination.items %}
+                <tr>
+                    <td>{{customer.Id}}</td>
+                    <td>{{customer.NationalId}}</td>
+                    <td>{{customer.GivenName}} {{customer.Surname}}</td>
+                    <td>{{customer.Streetaddress}}</td>
+                    <td>{{customer.City}}</td>
+                    <td><a class="btn btn-primary" href="{{url_for('customer.get_one', id=customer.Id)}}">Länk</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+
+
+    {% if pagination %}
+        {# Replacing this with a macro instead 
+        <div class="page-items text-primary">
+            {{ pagination.first }} - {{ pagination.last }} of {{ pagination.total }}
+        </div>
+        <div class="pagination text-primary">
+            {% for page in pagination.iter_pages() %}
+            {% if page %}
+            {% if page != pagination.page %}
+            <a href="{{ url_for('customer.get_all', page=page, per_page=50) }}">{{ page }}</a>
+            {% else %}
+            <strong>{{ page }}</strong>
+            {% endif %}
+            {% else %}
+            <span class="ellipsis">…</span>
+            {% endif %}
+            {% endfor %}
+        </div>
+        #}
+            {{render_pagination(pagination, 'customer.get_all')}}
+        {% endif %}
+    </div>
+{% endblock %}

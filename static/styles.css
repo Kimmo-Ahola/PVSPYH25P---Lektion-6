@@ -218,10 +218,76 @@ nav ul {
 .hero{
   min-height: 100vh;
   height: auto;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("assets/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-subtext{
+  width: clamp(200px, 100%, 450px);
 }
 
 .info{
   background-color: var(--color-bg-section);
+  padding: 2rem 0;
+}
+
+.info h2{
+  /* Header in the info section */
+  text-align: center;
+  font-size: var(--text-size-3xl);
+  /* We put a black line underneath the text */
+  text-decoration: underline;
+  text-decoration-thickness: 0.25rem;
+  text-decoration-color: var(--color-bg-primary);
+}
+
+.info .subheader{
+  /* Clamp gives a max width on the text underneath the header */
+  width: clamp(350px, 40%, 600px);
+  margin: 0 auto; /* ensures it stays centered */
+  margin-bottom: 2rem;
+}
+
+/* These are the statistics cards */
+.cards{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.card{
+  /* Each card wants to be at least 200px wide */
+  flex: 1 1 200px; 
+  text-align: center; 
+  padding: 1.5rem; 
+  border-radius: var(--border-radius-lg);
+}
+div.card.information{
+  background-color: var(--color-bg-alt);
+  box-shadow: 1px 1px 0.75rem rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease;
+}
+div.card.information:hover{
+  box-shadow: 1px 1px 0.75rem rgba(0, 0, 0, 0.25);
+}
+div.card.information h3{
+  font-size: var(--text-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+div.card.info p{
+  font-size: var(--text-size-md);
+}
+/* These are the icons taken from boxicons.com */
+.icon{
+  font-size: var(--text-size-xl); 
+  margin-bottom: 0.5rem;
 }
 
 footer{
@@ -231,6 +297,93 @@ footer{
 footer p{
   margin-bottom: 0;
   text-align: center;
+}
+
+/* Table styling, feel free to change colors etc */
+.pagination, .page-items{
+  text-align: center;
+}
+.table-shell{
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.table-scroll{
+  width: 100%;
+  max-height: 80vh;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.table-responsive{
+  width: 100%;
+  background-color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-collapse: collapse;
+}
+.table-responsive th, .table-responsive td{
+  border: 1px solid rgba(0,0,0,0.2);
+  white-space: nowrap;
+  padding: 0.75rem;
+  text-align: left;
+}
+.table-responsive thead a{
+    color: black;
+    text-decoration: none;
+}
+.table-responsive thead th{
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  background-color: #dbdbdb;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+  border-bottom: 1px solid rgba(0,0,0,.3);
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+}
+.table-responsive thead tr{
+  background-color: rgb(230, 230, 230);
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+}
+.table-responsive tbody tr:nth-child(odd){
+  background-color: rgba(0,0,0,0.05);
+}
+.table-responsive tbody tr:nth-child(odd):hover{
+  background-color: rgba(0,0,0,0.3);
+}
+.table-responsive tbody tr:nth-child(even):hover{
+  background-color: rgba(0,0,0,0.2);
+}
+.form-search{
+  position: relative;
+  margin-bottom: 1rem;
+}
+.form-search input{
+  width: 100%;
+  height: 3rem;
+  padding-right: 6rem;
+  padding-left: 1rem;
+  border: none;
+  color: rgba(0,0,0,0.6);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+.form-search input:focus{
+  outline: none;
+  color: black;
+}
+.form-search button{
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  height: 2.5rem;
+  width: 5.5rem;
+}
+.btn-search{
+  background-color: transparent;
+}
+.btn-search:hover{
+  transform: scale(1.1);
+}
+.btn-search:active{
+  transform: scale(0.95);
 }
 
 @media (min-width: 576px) {
@@ -257,6 +410,12 @@ footer p{
   }
   h2{
     font-size: var(--text-size-3xl);
+  }
+
+  .form-search{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
 }
 
