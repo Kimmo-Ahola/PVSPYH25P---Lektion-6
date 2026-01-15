@@ -6,6 +6,7 @@ from database import db
 from models.model import seedData
 from dotenv import load_dotenv
 from models.model import seedData
+from routes.customer_routes import customer_bp
 
 load_dotenv()
 
@@ -14,7 +15,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 environment = os.getenv("FLASK_DEBUG")
 db.init_app(app)
 migrate = Migrate(app, db)
-
+# register routes like this
+app.register_blueprint(customer_bp)
 
 @app.route("/")
 def home():

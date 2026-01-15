@@ -1,0 +1,11 @@
+{% extends 'user/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <p>This is a page for many users</p>
+    
+    {% for customer in customers %}
+    <p class="text-primary">{{ customer.GivenName }} <a class="btn btn-primary" href="{{url_for('customer.get_one', id=customer.Id)}}">Link to customer</a></p>
+    {% endfor %}
+</div>
+{% endblock %}
