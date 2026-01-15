@@ -8,15 +8,44 @@
         <h1>My Flask Web page</h1>
         <h2>This will become a nice bank app.</h2>
         <p>This is the content of the index page!</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur aut laboriosam quis, vero dicta natus culpa voluptas fuga dolorem, deserunt esse, dolore atque. Ipsa, similique. Commodi ut dolore illo rem.</p>
+        <p class="hero-subtext">Lorem, ipsum dolor sit amet consectetur adipisicing elit. A consequuntur illo, odit harum doloremque soluta et facilis, vel asperiores quia, consectetur repellendus praesentium architecto quaerat repudiandae. Voluptates vero libero suscipit.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur aut laboriosam quis, vero dicta natus culpa voluptas fuga dolorem, deserunt esse, dolore atque. Ipsa, similique. Commodi ut dolore illo rem.</p>
         <button class="btn btn-primary">primary button</button>
         <button class="btn btn-secondary">secondary button</button>
     </div>
 </section>
 
 <section class="info">
-    <div class="container">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, soluta quae maiores quisquam recusandae, ab voluptatibus eligendi assumenda id quas expedita distinctio ex commodi modi facilis, temporibus laudantium nemo natus!</p>
+    <div class="container"> 
+    <h2>Välkommen till Vår Bank</h2>
+    <p class="subheader">Vi erbjuder pålitliga tjänster för privatpersoner och företag. Här kan du se aktuell statistik över våra kunder och konton samt den totala summan av alla kunders saldon.</p>
+
+    <div class="cards">
+        <!-- Card: Antal kunder -->
+        <div class="card information">
+            <div class="icon">
+                <i class='bx  bx-community'></i>
+            </div>
+            <h3>Antal kunder</h3>
+            <p>Vi har 123 nöjda kunder som använder våra tjänster dagligen.</p>
+        </div>
+
+        <!-- Card: Antal konton -->
+        <div class="card information">
+            <div class="icon">
+                <i class='bx  bx-wallet-alt'></i> 
+            </div>
+            <h3>Antal konton</h3>
+            <p>Vi har öppnat 456 konton för kunder över hela landet.</p>
+        </div>
+
+        <!-- Card: Totalt saldo -->
+        <div class="card information">
+            <div class="icon"><i class='bx  bx-dollar-circle'></i> </i></div>
+            <h3>Totalt saldo</h3>
+            <p>Totalt har våra kunder 1,234,567 kr insatta på sina konton.</p>
+        </div>
     </div>
+  </div>
 </section>
+
 {% endblock %}

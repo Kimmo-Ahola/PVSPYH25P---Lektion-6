@@ -218,10 +218,76 @@ nav ul {
 .hero{
   min-height: 100vh;
   height: auto;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("assets/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-subtext{
+  width: clamp(200px, 100%, 450px);
 }
 
 .info{
   background-color: var(--color-bg-section);
+  padding: 2rem 0;
+}
+
+.info h2{
+  /* Header in the info section */
+  text-align: center;
+  font-size: var(--text-size-3xl);
+  /* We put a black line underneath the text */
+  text-decoration: underline;
+  text-decoration-thickness: 0.25rem;
+  text-decoration-color: var(--color-bg-primary);
+}
+
+.info .subheader{
+  /* Clamp gives a max width on the text underneath the header */
+  width: clamp(350px, 40%, 600px);
+  margin: 0 auto; /* ensures it stays centered */
+  margin-bottom: 2rem;
+}
+
+/* These are the statistics cards */
+.cards{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.card{
+  /* Each card wants to be at least 200px wide */
+  flex: 1 1 200px; 
+  text-align: center; 
+  padding: 1.5rem; 
+  border-radius: var(--border-radius-lg);
+}
+div.card.information{
+  background-color: var(--color-bg-alt);
+  box-shadow: 1px 1px 0.75rem rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease;
+}
+div.card.information:hover{
+  box-shadow: 1px 1px 0.75rem rgba(0, 0, 0, 0.25);
+}
+div.card.information h3{
+  font-size: var(--text-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+div.card.info p{
+  font-size: var(--text-size-md);
+}
+/* These are the icons taken from boxicons.com */
+.icon{
+  font-size: var(--text-size-xl); 
+  margin-bottom: 0.5rem;
 }
 
 footer{
