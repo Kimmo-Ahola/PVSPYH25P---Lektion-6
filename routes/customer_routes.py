@@ -72,6 +72,7 @@ def get_all():
         q=q,
         page=page,
         per_page=per_page,
+        endpoint=request.endpoint
     )
 
 
