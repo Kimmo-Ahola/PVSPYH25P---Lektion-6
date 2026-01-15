@@ -18,6 +18,7 @@ migrate = Migrate(app, db)
 # register routes like this
 app.register_blueprint(customer_bp)
 
+
 @app.route("/")
 def home():
     return render_template("user/index.html")
@@ -32,8 +33,8 @@ if __name__ == "__main__":
         server = Server(app.wsgi_app)
         server.watch("templates/**/*.html")  # all HTML files recursively
         server.watch("templates/components/*.html")  # or specific subfolder
-        server.watch("static/**/*.css")       # watch CSS recursively
-        server.watch("static/**/*.js")        # watch JS
+        server.watch("static/**/*.css")  # watch CSS recursively
+        server.watch("static/**/*.js")  # watch JS
 
         server.serve(open_url_delay=True)
     else:
